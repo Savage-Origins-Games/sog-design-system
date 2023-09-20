@@ -109,3 +109,4 @@ dist
 
 # Storybook files
 storybook-static/
+build/*
