@@ -1,0 +1,27 @@
+.sog-layout {
+  width: 1366px;
+  height: 768px;
+
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "sidebar body" 1fr
+    / auto 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+}
+
+.sog-sidbar {
+  grid-area: sidebar;
+}
+.sog-header {
+  grid-area: header;
+}
+.sog-main {
+  grid-area: main;
+}
+.sog-footer {
+  grid-area: footer;
+}
