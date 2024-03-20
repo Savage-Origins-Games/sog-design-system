@@ -23,6 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Clear old dependencies
+        run: |
+          rm -rf yarn.lock node_modules
+          yarn cache clean
       - name: Install dependencies
         run: yarn
 

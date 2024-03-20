@@ -18,6 +18,10 @@ jobs:
         with:
           node-version: "20.11.1"
           registry-url: "https://registry.npmjs.org"
+      - name: Clear old dependencies
+        run: |
+          rm -rf yarn.lock node_modules
+          yarn cache clean
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn publish
