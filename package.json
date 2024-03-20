@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "formik": "^2.2.9",
+    "got": "^11.8.5",
     "jest-html-reporter": "^3.10.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
