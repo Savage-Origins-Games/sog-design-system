@@ -27,7 +27,7 @@ jobs:
         run: yarn
 
       - name: Build design system
-        run: yarn build-storybook
+        run: yarn build:storybook
 
       - name: Deploy design system
         uses: JamesIves/github-pages-deploy-action@3.7.1
