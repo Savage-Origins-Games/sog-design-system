@@ -1,2 +1,3 @@
-import { Button } from "./Components/Button";
-export { Button };
+export { Button } from "./Components/Button";
+export { BaseLayout } from "./Patterns/BaseLayout";
+export { MainLayout } from "./Patterns/MainLayout";
