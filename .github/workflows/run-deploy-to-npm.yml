@@ -1,4 +1,4 @@
-name: Publish Package to npmjs
+name: Run Build and Deploy Package to npmjs
 
 on:
   release:
