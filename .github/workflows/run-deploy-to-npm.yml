@@ -36,6 +36,16 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Bump version (optional: patch, minor, or major)
+        id: version
+        run: |
+          VERSION_TYPE="patch" # Can be "patch", "minor", or "major"
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "Current version: $CURRENT_VERSION"
+          NEW_VERSION=$(npm version $VERSION_TYPE --no-git-tag-version)
+          echo "New version: $NEW_VERSION"
+          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
       - name: Build package
         run: yarn build
 
@@ -45,3 +55,11 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > ~/.npmrc
           yarn publish --access public
+
+      - name: Commit new version to package.json
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add package.json
+          git commit -m "Bump version to ${{ env.VERSION }}"
+          git push origin main
