@@ -1,11 +1,11 @@
 name: Publish Package to npmjs
 
 on:
+  release:
+    types: [published]
   push:
     branches:
       - main
-  release:
-    types: [published]
 
 concurrency:
   group: npm-publish-${{ github.ref }}
@@ -38,12 +38,6 @@ jobs:
 
       - name: Build package
         run: yarn build
-
-      - name: Bump version using semver
-        uses: actions/semver@v1
-        with:
-          version: patch
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish package
         env:
