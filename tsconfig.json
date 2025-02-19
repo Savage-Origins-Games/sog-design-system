@@ -22,6 +22,6 @@
     "types": ["node"],
     "typeRoots": ["node_modules/@types", "src/typings"]
   },
-  "include": ["src"],
+  "include": ["src", "setupTests.ts"],
   "exclude": ["**/*.test.tsx", "node_modules"]
 }
